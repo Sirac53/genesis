@@ -12,15 +12,28 @@ namespace Skylab3
     {
         static void Main(string[] args)
         {
+           while(true){
 
-            Console.WriteLine("Bir  metin GİRİN: ");
-            string metin = Console.ReadLine();
-            Console.WriteLine("Virgülle ayırarak Bir  Tarih GİRİN: ");
-            string tarihBaslangic= Console.ReadLine();
+             var newsApiClient = new NewsApiClient("cc7539e648194a6d9029403c414713ab");
+               
+             Console.WriteLine("Bir metin GİRİN (Çıkmak için 'exit' yazabilirsiniz): ");
+             string metin = Console.ReadLine();
+
+              if (metin.ToLower() == "exit")
+                     break;
+
+               Console.WriteLine("Virgülle ayırarak Bir Tarih GİRİN (yyyy-MM-dd): ");
+               string tarihBaslangic = Console.ReadLine();
+
+               if (!DateTime.TryParse(tarihBaslangic, out DateTime tarih))
+                {
+                  Console.WriteLine("Geçersiz tarih dizimi. Lütfen yyyy-MM-dd formatında girin.");
+                  continue; 
+                 }
 
 
-            {
-                var newsApiClient = new NewsApiClient("cc7539e648194a6d9029403c414713ab");
+            
+               
                 var articlesResponse = newsApiClient.GetEverything(new EverythingRequest
                 {
                     Q = metin,
