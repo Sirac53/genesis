@@ -67,7 +67,7 @@ namespace Skylab3
                 }
                 else
                 {
-                    Console.WriteLine("Hata mesajı: " + articlesResponse.Error.Message);
+                    Console.WriteLine("22,09,2023 ten 1 ay öncesine kadar ki articllara bakabilirsin sadece");
                 }
 
                 Console.ReadLine();
