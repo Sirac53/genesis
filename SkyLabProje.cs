@@ -26,7 +26,8 @@ namespace Skylab3
                     Q = metin,
                     SortBy = SortBys.Popularity,
                     Language = Languages.EN,
-                    From = DateTime.Parse(tarihBaslangic)
+                    From = DateTime.Parse(tarihBaslangic),
+                    To= DateTime.Parse(tarihBaslangic)     
                 }); 
 
                 if (articlesResponse.Status == Statuses.Ok)
